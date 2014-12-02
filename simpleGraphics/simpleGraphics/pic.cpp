@@ -139,9 +139,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	PAINTSTRUCT ps;
 	HDC hdc;
 	int xPos, yPos;
+		HWND hButton;
 
 	switch (message)
 	{
+	case WM_CREATE:
+			hButton = CreateWindow( L"button", L"Label",
+                WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON,
+                220, 415, 
+                50, 20,
+                hWnd, (HMENU) 63,
+                hInst, NULL );
+			break;
 	case WM_COMMAND:
 		wmId    = LOWORD(wParam);
 		wmEvent = HIWORD(wParam);

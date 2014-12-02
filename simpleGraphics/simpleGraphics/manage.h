@@ -25,6 +25,7 @@ void GameReset();	//Start the game over
 void GameDrawBoard(HWND hwnd, HDC hdc);	//Draw the game board, with X's and O's
 void GameSetMove(int i, int j);	//Set the next move
 void GameCheckWinner(HWND hwnd);	//Is there a winner?
+void DrawPic(HDC hdc, int i, int j );
 void GameDrawX(HDC hdc, int i, int j);
 void GameDrawO(HDC hdc, int i, int j);
 void GameDrawBall(HWND hwnd, HDC hdc);
