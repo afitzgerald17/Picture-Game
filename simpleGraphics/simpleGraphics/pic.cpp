@@ -133,6 +133,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY	- post a quit message and return
 //
 //
+HBITMAP hImage = NULL;
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
@@ -140,6 +141,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	HDC hdc;
 	int xPos, yPos;
 		HWND hButton;
+		BITMAP bmp;
+		HGDIOBJ oldBitmap;
+		HDC hdcMem;
 
 	switch (message)
 	{
@@ -150,7 +154,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 50, 20,
                 hWnd, (HMENU) 63,
                 hInst, NULL );
-			break;
+			hImage= (HBITMAP)LoadImage(hInst,L"C:\\Users\\hzeitler15\\Documents\\GitHub\\Picture-Game\\simpleGraphics\\simpleGraphics\\whole_pic.bmp",IMAGE_BITMAP,LR_DEFAULTSIZE ,LR_DEFAULTSIZE ,LR_LOADFROMFILE|LR_CREATEDIBSECTION);
+            break;
 	case WM_COMMAND:
 		wmId    = LOWORD(wParam);
 		wmEvent = HIWORD(wParam);
@@ -174,6 +179,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
 		GameDrawBoard(hWnd, hdc);
+
+		hdcMem = CreateCompatibleDC(hdc);
+        oldBitmap = SelectObject(hdcMem, hImage);
+
+        GetObject(hImage, sizeof(bmp), &bmp);
+        BitBlt(hdc, 0, 0, bmp.bmWidth, bmp.bmHeight, hdcMem, 0, 0, SRCCOPY);
+
+        SelectObject(hdcMem, oldBitmap);
+        DeleteDC(hdcMem);
+
 		EndPaint(hWnd, &ps);
 		break;
 	case WM_TIMER:

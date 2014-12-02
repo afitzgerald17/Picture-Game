@@ -32,8 +32,7 @@ void GameDrawBoard(HWND hwnd, HDC hdc) {
 	MoveToEx(hdc,100,300,NULL); LineTo(hdc,400,300);
 
 
-	HBITMAP hImage= (HBITMAP)LoadImage(NULL,L"C:\\Users\\hzeitler15\\Documents\\GitHub\\Picture-Game\\simpleGraphics\\simpleGraphics\\whole_pic",IMAGE_BITMAP,LR_DEFAULTSIZE ,LR_DEFAULTSIZE ,LR_LOADFROMFILE|LR_CREATEDIBSECTION);
-            SendMessage(hwnd,STM_SETIMAGE,IMAGE_BITMAP,(LPARAM)hImage);
+	
 
 
 	//Draw the Plays
@@ -41,7 +40,7 @@ void GameDrawBoard(HWND hwnd, HDC hdc) {
 		for (int j=0; j<3; j++) {
 			int A;
 			//if(board[i][j] == A)
-			DrawPic(hdc, i, j, A);
+			//DrawPic(hdc, i, j, A);
 			//Draw PIC
 		}
 	}
