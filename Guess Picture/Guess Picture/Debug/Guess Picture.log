@@ -1,0 +1,20 @@
+﻿Build started 11/20/2014 2:05:07 PM.
+     1>Project "C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Guess Picture\Guess Picture\Guess Picture.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Guess Picture.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt gamemgr.cpp
+         gamemgr.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Guess Picture\Debug\Guess Picture.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Guess Picture\Debug\Guess Picture.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Guess Picture\Debug\Guess Picture.lib" /MACHINE:X86 "Debug\Guess Picture.res"
+         Debug\gamemgr.obj
+         "Debug\Guess Picture.obj"
+         Debug\stdafx.obj
+     1>gamemgr.obj : error LNK2019: unresolved external symbol "void __cdecl GameDrawX(struct HDC__ *,int,int)" (?GameDrawX@@YAXPAUHDC__@@HH@Z) referenced in function "void __cdecl GameDrawBoard(struct HWND__ *,struct HDC__ *)" (?GameDrawBoard@@YAXPAUHWND__@@PAUHDC__@@@Z)
+     1>gamemgr.obj : error LNK2019: unresolved external symbol "void __cdecl GameDrawO(struct HDC__ *,int,int)" (?GameDrawO@@YAXPAUHDC__@@HH@Z) referenced in function "void __cdecl GameDrawBoard(struct HWND__ *,struct HDC__ *)" (?GameDrawBoard@@YAXPAUHWND__@@PAUHDC__@@@Z)
+     1>gamemgr.obj : error LNK2001: unresolved external symbol "struct HFONT__ * fntChosen" (?fntChosen@@3PAUHFONT__@@A)
+     1>gamemgr.obj : error LNK2001: unresolved external symbol "char key" (?key@@3DA)
+     1>C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Guess Picture\Debug\Guess Picture.exe : fatal error LNK1120: 4 unresolved externals
+     1>Done Building Project "C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Guess Picture\Guess Picture\Guess Picture.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.40

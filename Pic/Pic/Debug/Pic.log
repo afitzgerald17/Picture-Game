@@ -1,0 +1,16 @@
+﻿Build started 12/2/2014 12:44:57 PM.
+     1>Project "C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Pic\Pic\Pic.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Pic.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Pic.cpp
+         Pic.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Pic\Debug\Pic.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Pic\Debug\Pic.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Pic\Debug\Pic.lib" /MACHINE:X86 Debug\Pic.res
+         Debug\manage.obj
+         Debug\Pic.obj
+         Debug\stdafx.obj
+         Pic.vcxproj -> C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Pic\Debug\Pic.exe
+     1>Done Building Project "C:\Users\hzeitler15\Documents\GitHub\Picture-Game\Pic\Pic\Pic.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.38
