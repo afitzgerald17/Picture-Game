@@ -4,6 +4,9 @@
 #include "stdafx.h"
 #include "pic.h"
 #include "manage.h"
+#include <vector>
+#include "Grid.h"
+using namespace std;
 
 #define MAX_LOADSTRING 100
 
@@ -11,6 +14,7 @@
 HINSTANCE hInst;								// current instance
 TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
 TCHAR szWindowClass[MAX_LOADSTRING];			// the main window class name
+Grid grid;
 
 // Forward declarations of functions included in this code module:
 ATOM				MyRegisterClass(HINSTANCE hInstance);
@@ -133,17 +137,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY	- post a quit message and return
 //
 //
-HBITMAP hImage = NULL;
+//HBITMAP hImage = NULL;
+vector <HBITMAP> images;
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
 	PAINTSTRUCT ps;
 	HDC hdc;
 	int xPos, yPos;
-		HWND hButton;
-		BITMAP bmp;
-		HGDIOBJ oldBitmap;
-		HDC hdcMem;
+	HWND hButton;	
 
 	switch (message)
 	{
@@ -154,7 +156,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 50, 20,
                 hWnd, (HMENU) 63,
                 hInst, NULL );
-			hImage= (HBITMAP)LoadImage(hInst,L"C:\\Users\\hzeitler15\\Documents\\GitHub\\Picture-Game\\simpleGraphics\\simpleGraphics\\whole_pic.bmp",IMAGE_BITMAP,LR_DEFAULTSIZE ,LR_DEFAULTSIZE ,LR_LOADFROMFILE|LR_CREATEDIBSECTION);
+			images.push_back((HBITMAP)LoadImage(hInst,L"C:\\Users\\hzeitler15\\Documents\\GitHub\\Picture-Game\\simpleGraphics\\simpleGraphics\\whole_pic.bmp",IMAGE_BITMAP,LR_DEFAULTSIZE ,LR_DEFAULTSIZE ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
             break;
 	case WM_COMMAND:
 		wmId    = LOWORD(wParam);
@@ -180,15 +182,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		hdc = BeginPaint(hWnd, &ps);
 		GameDrawBoard(hWnd, hdc);
 
-		hdcMem = CreateCompatibleDC(hdc);
-        oldBitmap = SelectObject(hdcMem, hImage);
+		
 
-        GetObject(hImage, sizeof(bmp), &bmp);
-        BitBlt(hdc, 0, 0, bmp.bmWidth, bmp.bmHeight, hdcMem, 0, 0, SRCCOPY);
-
-        SelectObject(hdcMem, oldBitmap);
-        DeleteDC(hdcMem);
-
+        
 		EndPaint(hWnd, &ps);
 		break;
 	case WM_TIMER:
@@ -215,7 +211,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		yPos = (HIWORD(lParam) - 100) / 100;
 		
 		////Tell the game manager to add a move
-		//GameSetMove(xPos, yPos);
+		GameSetMove(xPos, yPos);
 		//Force a paint message of the gameboard
 		InvalidateRect(hWnd, NULL, true);
 		//Did someone win?

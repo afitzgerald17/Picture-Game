@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "manage.h"
 
-char board[3][3];	//A tic-tac-toe board is just a 3X3 grid
+bool board[3][3];	//A tic-tac-toe board is just a 3X3 grid
 bool gameOver;		//Is the game over?
 
 
@@ -11,7 +11,7 @@ void GameReset() {
 	gameOver = false;
 	for (int i=0; i<3; i++) {
 		for (int j=0; j<3; j++) {
-			board[i][j] = EMPTY;
+			board[i][j] = false;
 		}
 	}
 }
@@ -38,20 +38,46 @@ void GameDrawBoard(HWND hwnd, HDC hdc) {
 	//Draw the Plays
 	for (int i=0; i<3; i++) {
 		for (int j=0; j<3; j++) {
-			int A;
-			//if(board[i][j] == A)
-			//DrawPic(hdc, i, j, A);
-			//Draw PIC
-		}
+			if (board[i][j] == true)
+				DrawPic(hdc, i, j);
+		}		
 	}
 }
 
 
-void DrawPic(HDC hdc, int i, int j, int A)
+void DrawPic(HDC hdc, int i, int j)
 {
 	
-}
+		BITMAP bmp;
+		HGDIOBJ oldBitmap;
+		HDC hdcMem;
+		hdcMem = CreateCompatibleDC(hdc);
+		oldBitmap = SelectObject(hdcMem, images[0]);
 
+        GetObject(images[0], sizeof(bmp), &bmp);
+        BitBlt(hdc, 100, 100, bmp.bmWidth, bmp.bmHeight, hdcMem, 0, 0, SRCCOPY);
+
+		SelectObject(hdcMem, oldBitmap);
+        DeleteDC(hdcMem);
+
+}
+//Set the next move
+void GameSetMove(int i, int j) {
+	board[i][j] = true;
+	//Make sure the move is legal
+	//if (i >= 0 && i <= 2 && j >= 0 && j <= 2) {
+	//	//Make sure the game is still playing
+	//	if (gameOver == false) {
+	//		if (xMove)
+	//			board[i][j] = true;
+	//		else
+	//			board[i][j] = O;
+
+	//		//Next player's turn
+	//		xMove = !xMove;
+		//}
+	//}
+}
 //Is there a winner?
 void GameCheckWinner(HWND hwnd) 
 {

@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include <CommDlg.h>
+#include <vector>
+using namespace std;
 
 //Character values for the board array
 const char EMPTY = '\0';	//no one's moved here 
@@ -13,13 +15,15 @@ const int YBALLINC = 3;
 const int BALLWIDTH = 20;
 const int BALLHEIGHT = 20;
 
-extern char board[3][3];	//A tic-tac-toe board is just a 3X3 grid
+extern bool board[3][3];	//A tic-tac-toe board is just a 3X3 grid
 extern bool xMove;			//Is it X's turn?
 extern bool gameOver;		//Is the game over?
 extern int xRect, yRect;	//Rectangle to draw ball in
 extern int xInc, yInc;		//How much to move ball on each timer tick
 //extern HFONT fntChosen;
 extern char key;
+extern vector<HBITMAP> images;
+
 
 void GameReset();	//Start the game over
 void GameDrawBoard(HWND hwnd, HDC hdc);	//Draw the game board, with X's and O's
