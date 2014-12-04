@@ -39,7 +39,9 @@ void GameDrawBoard(HWND hwnd, HDC hdc) {
 	for (int i=0; i<3; i++) {
 		for (int j=0; j<3; j++) {
 			if (board[i][j] == true)
-				DrawPic(hdc, i, j);
+				{
+					DrawPic(hdc, i, j);
+				}
 		}		
 	}
 }
@@ -48,6 +50,8 @@ void GameDrawBoard(HWND hwnd, HDC hdc) {
 void DrawPic(HDC hdc, int i, int j)
 {
 	
+		if(i=1, j=1)
+		{
 		BITMAP bmp;
 		HGDIOBJ oldBitmap;
 		HDC hdcMem;
@@ -59,24 +63,28 @@ void DrawPic(HDC hdc, int i, int j)
 
 		SelectObject(hdcMem, oldBitmap);
         DeleteDC(hdcMem);
+		}
+
+		/*if(i=2, j=1)
+		{
+		BITMAP bmp;
+		HGDIOBJ oldBitmap;
+		HDC hdcMem;
+		hdcMem = CreateCompatibleDC(hdc);
+		oldBitmap = SelectObject(hdcMem, images[0]);
+
+        GetObject(images[0], sizeof(bmp), &bmp);
+        BitBlt(hdc, 100, 100, bmp.bmWidth, bmp.bmHeight, hdcMem, 0, 0, SRCCOPY);
+
+		SelectObject(hdcMem, oldBitmap);
+        DeleteDC(hdcMem);
+		}*/
 
 }
 //Set the next move
 void GameSetMove(int i, int j) {
 	board[i][j] = true;
-	//Make sure the move is legal
-	//if (i >= 0 && i <= 2 && j >= 0 && j <= 2) {
-	//	//Make sure the game is still playing
-	//	if (gameOver == false) {
-	//		if (xMove)
-	//			board[i][j] = true;
-	//		else
-	//			board[i][j] = O;
-
-	//		//Next player's turn
-	//		xMove = !xMove;
-		//}
-	//}
+	
 }
 //Is there a winner?
 void GameCheckWinner(HWND hwnd) 
