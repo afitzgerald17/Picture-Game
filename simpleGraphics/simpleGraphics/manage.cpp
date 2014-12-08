@@ -50,35 +50,19 @@ void GameDrawBoard(HWND hwnd, HDC hdc) {
 void DrawPic(HDC hdc, int i, int j)
 {
 	
-		if(i=1, j=1)
-		{
+		
 		BITMAP bmp;
 		HGDIOBJ oldBitmap;
 		HDC hdcMem;
 		hdcMem = CreateCompatibleDC(hdc);
-		oldBitmap = SelectObject(hdcMem, images[0]);
+		oldBitmap = SelectObject(hdcMem, images[(i+3*j)]);
 
-        GetObject(images[0], sizeof(bmp), &bmp);
-        BitBlt(hdc, 100, 100, bmp.bmWidth, bmp.bmHeight, hdcMem, 0, 0, SRCCOPY);
-
-		SelectObject(hdcMem, oldBitmap);
-        DeleteDC(hdcMem);
-		}
-
-		/*if(i=2, j=1)
-		{
-		BITMAP bmp;
-		HGDIOBJ oldBitmap;
-		HDC hdcMem;
-		hdcMem = CreateCompatibleDC(hdc);
-		oldBitmap = SelectObject(hdcMem, images[0]);
-
-        GetObject(images[0], sizeof(bmp), &bmp);
-        BitBlt(hdc, 100, 100, bmp.bmWidth, bmp.bmHeight, hdcMem, 0, 0, SRCCOPY);
+        GetObject(images[(i+3*j)], sizeof(bmp), &bmp);
+        BitBlt(hdc, (100+i*100), (100+j*100), bmp.bmWidth, bmp.bmHeight, hdcMem, 0, 0, SRCCOPY);
 
 		SelectObject(hdcMem, oldBitmap);
         DeleteDC(hdcMem);
-		}*/
+		
 
 }
 //Set the next move

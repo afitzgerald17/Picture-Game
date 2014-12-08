@@ -6,6 +6,7 @@
 #include "manage.h"
 #include <vector>
 #include "Grid.h"
+#include <string>
 using namespace std;
 
 #define MAX_LOADSTRING 100
@@ -139,6 +140,11 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 //HBITMAP hImage = NULL;
 vector <HBITMAP> images;
+vector <string> names;
+string pooh;
+string ariel;
+string mickey;
+int round=0;
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
@@ -146,6 +152,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	HDC hdc;
 	int xPos, yPos;
 	HWND hButton;	
+	
+	
 
 	switch (message)
 	{
@@ -156,18 +164,75 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 50, 20,
                 hWnd, (HMENU) 63,
                 hInst, NULL );
-
-			images.push_back((HBITMAP)LoadImage(hInst,L"1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-			images.push_back((HBITMAP)LoadImage(hInst,L"2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-			images.push_back((HBITMAP)LoadImage(hInst,L"3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-			images.push_back((HBITMAP)LoadImage(hInst,L"4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-			images.push_back((HBITMAP)LoadImage(hInst,L"5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-			images.push_back((HBITMAP)LoadImage(hInst,L"6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-			images.push_back((HBITMAP)LoadImage(hInst,L"7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-			images.push_back((HBITMAP)LoadImage(hInst,L"8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-            images.push_back((HBITMAP)LoadImage(hInst,L"9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
 			
+			names.push_back(pooh);
+			names.push_back(ariel);
+			names.push_back(mickey);
+
+			if(round==0)
+				{
+					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					//round++;
+				}
+				else if(round==1)
+				{
+					images.push_back((HBITMAP)LoadImage(hInst,L"ariel1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"ariel2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"ariel3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"ariel4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"ariel5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"ariel6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"ariel7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"ariel8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"ariel9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					//round++;
+				}
+				else if(round==2)
+				{
+					
+					images.push_back((HBITMAP)LoadImage(hInst,L"lady1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"lady2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"lady3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"lady4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"lady5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"lady6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"lady7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"lady8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images.push_back((HBITMAP)LoadImage(hInst,L"lady9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+				}
 			break;
+//case WM_COMMAND:
+//    switch(LOWORD(wParam))
+//    {
+//        case ID_HELP_ABOUT:
+//        {
+//            int ret = DialogBox(GetModuleHandle(NULL), 
+//                MAKEINTRESOURCE(IDD_ABOUT), hwnd, AboutDlgProc);
+//            if(ret == IDOK){
+//                MessageBox(hwnd, "Dialog exited with IDOK.", "Notice",
+//                    MB_OK | MB_ICONINFORMATION);
+//            }
+//            else if(ret == IDCANCEL){
+//                MessageBox(hwnd, "Dialog exited with IDCANCEL.", "Notice",
+//                    MB_OK | MB_ICONINFORMATION);
+//            }
+//            else if(ret == -1){
+//                MessageBox(hwnd, "Dialog failed!", "Error",
+//                    MB_OK | MB_ICONINFORMATION);
+//            }
+//        }
+//        break;
+//        // Other menu commands...
+//    }
+//break;
 	case WM_COMMAND:
 		wmId    = LOWORD(wParam);
 		wmEvent = HIWORD(wParam);
@@ -175,7 +240,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		switch (wmId)
 		{
 		case ID_FILE_NEW:
-			GameReset();
+			
+			GameReset(); 
+			round++;
+			//images.clear();
 			break;
 		case IDM_ABOUT:
 			DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
@@ -197,9 +265,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         
 		EndPaint(hWnd, &ps);
 		break;
-	case WM_TIMER:
-		InvalidateRect(hWnd, NULL, true);
-		break;
+	
 	case WM_SIZE:
 		RECT r; //make a rectangle object
 		//Make sure we don't go below the minimum
