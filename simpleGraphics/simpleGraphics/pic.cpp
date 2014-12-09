@@ -158,13 +158,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	switch (message)
 	{
 	case WM_CREATE:
-			hButton = CreateWindow( L"button", L"Label",
+			/*hButton = CreateWindow( L"button", L"Label",
                 WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON,
                 220, 415, 
                 50, 20,
                 hWnd, (HMENU) 63,
                 hInst, NULL );
-			
+			*/
 			names.push_back(pooh);
 			names.push_back(ariel);
 			names.push_back(mickey);
@@ -237,7 +237,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		case ID_FILE_NEW:
 			
 			GameReset(); 
-			round++;
+			round=(round+1)%3;
 			//images.clear();
 			break;
 		case IDM_ABOUT:
