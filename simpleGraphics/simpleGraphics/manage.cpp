@@ -55,9 +55,9 @@ void DrawPic(HDC hdc, int i, int j)
 		HGDIOBJ oldBitmap;
 		HDC hdcMem;
 		hdcMem = CreateCompatibleDC(hdc);
-		oldBitmap = SelectObject(hdcMem, images[(i+3*j)]);
+		oldBitmap = SelectObject(hdcMem, images[round][(i+3*j)]);
 
-        GetObject(images[(i+3*j)], sizeof(bmp), &bmp);
+        GetObject(images[round][(i+3*j)], sizeof(bmp), &bmp);
         BitBlt(hdc, (100+i*100), (100+j*100), bmp.bmWidth, bmp.bmHeight, hdcMem, 0, 0, SRCCOPY);
 
 		SelectObject(hdcMem, oldBitmap);

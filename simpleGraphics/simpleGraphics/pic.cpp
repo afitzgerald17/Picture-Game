@@ -139,7 +139,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 //
 //HBITMAP hImage = NULL;
-vector <HBITMAP> images;
+vector <HBITMAP> images[3];
 vector <string> names;
 string pooh;
 string ariel;
@@ -169,45 +169,40 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			names.push_back(ariel);
 			names.push_back(mickey);
 
-			if(round==0)
-				{
-					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"pooh+9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+			
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
 					//round++;
-				}
-				else if(round==1)
-				{
-					images.push_back((HBITMAP)LoadImage(hInst,L"ariel1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"ariel2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"ariel3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"ariel4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"ariel5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"ariel6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"ariel7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"ariel8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"ariel9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+				
+					images[1].push_back((HBITMAP)LoadImage(hInst,L"ariel1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[1].push_back((HBITMAP)LoadImage(hInst,L"ariel2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[1].push_back((HBITMAP)LoadImage(hInst,L"ariel3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[1].push_back((HBITMAP)LoadImage(hInst,L"ariel4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[1].push_back((HBITMAP)LoadImage(hInst,L"ariel5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[1].push_back((HBITMAP)LoadImage(hInst,L"ariel6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[1].push_back((HBITMAP)LoadImage(hInst,L"ariel7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[1].push_back((HBITMAP)LoadImage(hInst,L"ariel8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[1].push_back((HBITMAP)LoadImage(hInst,L"ariel9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
 					//round++;
-				}
-				else if(round==2)
-				{
+				
 					
-					images.push_back((HBITMAP)LoadImage(hInst,L"lady1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"lady2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"lady3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"lady4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"lady5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"lady6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"lady7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"lady8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images.push_back((HBITMAP)LoadImage(hInst,L"lady9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-				}
+					images[2].push_back((HBITMAP)LoadImage(hInst,L"lady1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[2].push_back((HBITMAP)LoadImage(hInst,L"lady2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[2].push_back((HBITMAP)LoadImage(hInst,L"lady3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[2].push_back((HBITMAP)LoadImage(hInst,L"lady4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[2].push_back((HBITMAP)LoadImage(hInst,L"lady5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[2].push_back((HBITMAP)LoadImage(hInst,L"lady6.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[2].push_back((HBITMAP)LoadImage(hInst,L"lady7.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[2].push_back((HBITMAP)LoadImage(hInst,L"lady8.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+					images[2].push_back((HBITMAP)LoadImage(hInst,L"lady9.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+				
 			break;
 //case WM_COMMAND:
 //    switch(LOWORD(wParam))

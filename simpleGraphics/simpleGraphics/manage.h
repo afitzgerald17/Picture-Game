@@ -9,7 +9,8 @@ using namespace std;
 extern bool board[3][3];	//A tic-tac-toe board is just a 3X3 grid
 extern bool gameOver;		//Is the game over?
 extern char key;
-extern vector<HBITMAP> images;
+extern vector<HBITMAP> images[3];
+extern int round;
 
 
 void GameReset();	//Start the game over
