@@ -7,6 +7,7 @@
 #include <vector>
 #include "Grid.h"
 #include <string>
+#include <fstream>
 using namespace std;
 
 #define MAX_LOADSTRING 100
@@ -152,6 +153,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	HDC hdc;
 	int xPos, yPos;
 	HWND hButton;	
+	ifstream name;
+	string line;
 	
 	
 
@@ -165,13 +168,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 hWnd, (HMENU) 63,
                 hInst, NULL );
 			*/
-			names.push_back(pooh);
-			names.push_back(ariel);
-			names.push_back(mickey);
-
+		
 			
-					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
-					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
+	name.open("names.txt");// code to open up the txt file
+	while(getline(name, line))// code to load the different names into the vector
+	{
+		names.push_back(line);
+
+	}
+			
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+1.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION)); // tried to implement using the code with 
+					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+2.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));// load the bmp and set the size to 100 by 100
 					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+3.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
 					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+4.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
 					images[0].push_back((HBITMAP)LoadImage(hInst,L"pooh+5.bmp",IMAGE_BITMAP,100 ,100 ,LR_LOADFROMFILE|LR_CREATEDIBSECTION));
@@ -237,8 +244,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		case ID_FILE_NEW:
 			
 			GameReset(); 
-			round=(round+1)%3;
-			//images.clear();
+			round=(round+1)%3; /// increases the round count and divides it by 3
+		
 			break;
 		case IDM_ABOUT:
 			DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
